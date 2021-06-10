@@ -1,0 +1,52 @@
+<html>
+
+  <head>
+    <style type="text/css">
+      @import
+      url('https://fonts.googleapis.com/css?family=Open+Sans|Pinyon+Script|Rochester|Rosarivo|Tangerine');
+      body, html { margin: 0; padding: 0; } body { color: black; display: table;
+      font-family: Georgia, serif; font-size: 24px; text-align: center; display:
+      flex; flex-direction: center; justify-content: center; align-items:
+      center; } .container { border: 20px solid tan; width: 100vh; height: 90vh;
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: center; } .logo { color: tan; } .marquee { color: tan;
+      font-size: 48px; margin: 20px; } .assignment { margin: 20px; } .person {
+      border-bottom: 2px solid black; font-size: 32px; font-style: italic;
+      margin: 20px auto; width: 400px; } .reason { margin: 20px; } .cursive-2 {
+      font-family: 'Tangerine', cursive; dispaly: inline-block; padding-right:
+      18px; font-size: 38px; font-weight: 400; } .date { align-self: flex-end;
+      position: absolute; bottom: 70px; right: 160px; border-bottom: solid
+      black;}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="logo">
+        An Organization Logo
+      </div>
+
+      <div class="marquee">
+        Certificate
+        <span class="cursive-2">of</span>
+        Completion
+      </div>
+
+      <div class="assignment">
+        This certificate is presented to
+      </div>
+
+      <div class="person">
+        {{studentName}}
+      </div>
+
+      <div class="reason">
+        while completing the training course
+        <br />
+        {{courseName}}
+      </div>
+      <span class="date">Date<br />{{date}}</span>
+    </div>
+  </body>
+
+</html>
