@@ -66,7 +66,6 @@ app.post('/generate-certificate', certificateMiddleware, async (req, res) => {
 
   //  Generate a pdf using Puppeteer
 async function generateCertificate (hostName, fileName, studentName, courseName) {
-  console.log(hostName, fileName, studentName, courseName);
   const URL = `https://${hostName}/certificate/?studentName=${studentName}&courseName=${courseName}`;
 
   const optionsPDF = {
