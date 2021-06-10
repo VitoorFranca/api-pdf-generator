@@ -58,7 +58,6 @@ app.post('/generate-certificate', certificateMiddleware, async (req, res) => {
   } catch (error) {
     res.json({
       error: true,
-      ola: 1111,
       message: error
     });
   }
@@ -67,7 +66,8 @@ app.post('/generate-certificate', certificateMiddleware, async (req, res) => {
 
   //  Generate a pdf using Puppeteer
 async function generateCertificate (hostName, fileName, studentName, courseName) {
-  const URL = `http://${hostName}/certificate/?studentName=${studentName}&courseName=${courseName}`;
+  console.log(hostName, fileName, studentName, courseName);
+  const URL = `https://${hostName}/certificate/?studentName=${studentName}&courseName=${courseName}`;
 
   const optionsPDF = {
     path: `./certificates/${fileName}.pdf`,
@@ -76,7 +76,12 @@ async function generateCertificate (hostName, fileName, studentName, courseName)
     height: 680
   }
   
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+    ],
+  });
 
   const page = await browser.newPage();
   await page.goto(URL, {
